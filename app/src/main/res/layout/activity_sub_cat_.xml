@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.Sub_cat_Activity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:id="@+id/toolbar"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp">
+
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:id="@+id/cartBtn"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="8dp"
+            android:src="@drawable/ic_add_shopping_white"
+            android:layout_alignParentEnd="true"
+            android:background="@null">
+
+
+        </ImageButton>
+        <ImageButton
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_centerVertical="true"
+
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_chevron_white_left"
+
+            android:background="@null">
+
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+           android:layout_centerInParent="true"
+            android:text="Shop Detail"
+            android:padding="5dp"
+            android:id="@+id/titlTv"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:layout_alignParentEnd="true"
+            android:text="10"
+            android:id="@+id/cardCountTv"
+            android:textSize="8sp"
+
+            android:background="@drawable/reactcircle"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite">
+
+        </TextView>
+
+
+
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/productRL"
+        android:layout_below="@+id/toolbar">
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/searchProductEt"
+
+            android:background="@drawable/shape_rect02"
+            android:padding="10dp"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_search_gray"
+            android:drawablePadding="10dp"
+            android:hint="Search"
+            >
+
+        </EditText>
+
+        <!--show filterd Product-->
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchProductEt"
+            android:text="Showing All"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/filterProductTv"
+            android:textColor="@color/colorblack">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/filterProductTv"
+            android:id="@+id/productsRV"
+          >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+
+
+    </RelativeLayout>
+
+    <com.github.ybq.android.spinkit.SpinKitView
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/spin_kit"
+        style="@style/SpinKitView.Large.Circle"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+
+        app:SpinKit_Color="@color/colorAccent" />
+
+
+</RelativeLayout>

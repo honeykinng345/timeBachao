@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <RelativeLayout
+        android:id="@+id/relavtive1"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+
+        <TextView
+            android:id="@+id/nameTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="2dp"
+            android:text="Deal Detail"
+            android:textColor="@color/colorwhite"
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iconIv"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:scaleType="fitCenter"
+        android:adjustViewBounds="true"
+        android:background="@color/colorPrimary"
+        android:src="@drawable/ic_add_shopping_white"
+        android:contentDescription="@string/todo">
+
+    </ImageView>
+
+
+    <androidx.core.widget.NestedScrollView
+
+        android:layout_width="match_parent"
+android:layout_marginTop="8dp"
+        android:layout_height="match_parent"
+       android:layout_below="@+id/iconIv"
+
+
+        android:layout_gravity="fill_vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/colorwhite">
+
+
+            <!-- AboutToolbar -->
+            <RelativeLayout
+                android:id="@+id/one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:elevation="20dp"
+                android:background="@drawable/curve_background">
+
+                <RelativeLayout
+                    android:id="@+id/org"
+                    android:layout_width="30dp"
+                    android:layout_height="150dp"
+                    android:layout_margin="15dp"
+                    android:background="@color/colorPink">
+                </RelativeLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="48dp"
+                    android:orientation="vertical">
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:layout_marginTop="5dp"
+                        android:text="Services Details:"
+                        android:textColor="@color/colorPink"
+                        android:textSize="20sp"
+                        >
+
+                    </TextView>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:layout_marginTop="8dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Title"
+                            android:id="@+id/titleTv"
+
+                            style="@style/TextAppearance.AppCompat.Title"
+
+
+                            android:textColor="@color/colorblack">
+
+                        </TextView>
+
+
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:layout_marginTop="8dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Deal:"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorgray02">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/harir_treatment_hair_color_shower"
+                            android:textSize="15sp"
+                            android:id="@+id/shortDes"
+
+                            android:layout_marginLeft="20dp"
+                            android:textColor="@color/colorblack">
+
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:layout_marginTop="8dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Duration:"
+                            android:textSize="18sp"
+                            android:textColor="@color/colorgray02">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="One Hour"
+                            android:textSize="15sp"
+                            android:id="@+id/duration"
+                            android:layout_marginLeft="20dp"
+                            android:textColor="@color/colorblack">
+
+                        </TextView>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+
+                        android:layout_marginTop="8dp"
+                        >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Price"
+                            android:textSize="18sp"
+
+                            android:textColor="@color/colorgray02">
+
+                        </TextView>
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="500"
+                            android:textSize="15sp"
+                            android:id="@+id/origonalPriceTv"
+                            android:textColor="@color/colorblack"
+                            android:layout_marginLeft="6dp"
+                            >
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=" 200"
+
+                            android:id="@+id/discountPriceTV"
+                            android:visibility="gone"
+                            android:textSize="16sp"
+                            android:layout_marginStart="15dp"
+                            android:textColor="@color/colorblack"/>
+
+
+
+
+
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </RelativeLayout>
+
+
+
+            <!-- AboutCollapsingToolbar -->
+            <RelativeLayout
+                android:id="@+id/two"
+                android:layout_below="@id/one"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:elevation="20dp"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+
+                android:layout_marginBottom="20dp"
+
+                android:background="@drawable/curve_background">
+
+                <RelativeLayout
+                    android:id="@+id/pur"
+                    android:layout_width="30dp"
+                    android:layout_height="300dp"
+                    android:layout_margin="15dp"
+                    android:background="@color/colorPrimary">
+                </RelativeLayout>
+
+                <TextView
+                    android:id="@+id/text2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toEndOf="@id/pur"
+                    android:text="Service Description"
+                    android:textAllCaps="true"
+                    android:layout_marginTop="5dp"
+
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimary" />
+
+                <TextView
+                    android:layout_below="@id/text2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/description"
+                    android:layout_toEndOf="@id/pur"
+                    android:layout_marginTop="10dp"
+                    android:text="we Offer the Best Services.."
+                    android:textColor="@color/colorblack"
+                    android:textSize="13sp"
+                    android:textStyle="bold" />
+
+
+            </RelativeLayout>
+
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+    </androidx.core.widget.NestedScrollView>
+
+
+</RelativeLayout>

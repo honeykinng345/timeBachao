@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "806538767552",
+    "firebase_url": "https://hdwallpapers-3689b.firebaseio.com",
+    "project_id": "hdwallpapers-3689b",
+    "storage_bucket": "hdwallpapers-3689b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:806538767552:android:f07848bac5e2e605699125",
+        "android_client_info": {
+          "package_name": "home.services.timeBacaho"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "806538767552-3miisb1o9hh5ndrp9gnvnbb8q7ld5onr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDR-yQ5S4lBDz936ljEW3w9Pjjik3ij7sQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "806538767552-3miisb1o9hh5ndrp9gnvnbb8q7ld5onr.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/colorwhite"
+    android:layout_height="match_parent"
+    tools:context=".Activity.activity_splash_scr"
+   >
+    <ImageView
+        android:id="@+id/ivLogoSplash"
+        android:layout_width="180dp"
+        android:layout_height="202dp"
+        android:layout_marginEnd="8dp"
+        android:layout_centerHorizontal="true"
+
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="180dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/whitelogocircle" />
+
+    <TextView
+        android:id="@+id/compnayName"
+        android:layout_width="300dp"
+        android:textStyle="bold|italic"
+        android:layout_below="@+id/ivLogoSplash"
+        android:textSize="27sp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Time Bachao.!"
+        android:visibility="gone"
+        android:textColor="@color/colorPrimary"
+
+        android:layout_marginBottom="60dp"
+        android:gravity="center"
+        android:layout_centerHorizontal="true"
+
+        />
+
+
+
+
+    <TextView
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center"
+    android:text="Bringing Comfort At Your Door.!"
+    android:textColor="@color/colorPink"
+    android:layout_marginTop="80dp"
+    android:layout_alignParentBottom="true"
+    android:layout_centerVertical="true"
+    android:layout_centerHorizontal="true"
+    android:textStyle="bold"
+    android:textSize="15dp"
+    android:layout_marginBottom="10dp"
+
+
+ >
+
+</TextView>
+</RelativeLayout>

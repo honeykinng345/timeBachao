@@ -1,0 +1,121 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.RedeemActivity">
+
+
+    <RelativeLayout
+        android:id="@+id/relavtive1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/RbackBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:contentDescription="@string/todo"
+            android:src="@drawable/ic_chevron_white_left" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="Redeem"
+            android:textColor="@color/colorwhite"
+            android:textSize="22sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="210dp"
+        android:layout_marginTop="10dp"
+
+        app:lottie_rawRes="@raw/gift"
+        android:id="@+id/moneyAnimation"
+        app:lottie_autoPlay="true"
+        android:layout_centerVertical="true"
+        app:lottie_loop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relavtive1"
+        android:layout_height="210dp">
+
+    </com.airbnb.lottie.LottieAnimationView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="7dp"
+        android:textSize="14sp"
+        android:id="@+id/balanceH"
+        android:layout_below="@+id/redeemBalance"
+ android:layout_centerHorizontal="true"
+        android:textColor="@color/colorgray02"
+        android:layout_centerVertical="true"
+        android:text="Your Points"
+       >
+
+    </TextView>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_below="@+id/moneyAnimation"
+        style="@style/TextAppearance.AppCompat.Title"
+      android:id="@+id/redeemBalance"
+android:textSize="30sp"
+        android:layout_centerHorizontal="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerVertical="true"
+        android:text="Rs: 100"
+        >
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:id="@+id/tx1"
+        android:text="you will get 100 rupes After every Order"
+        android:layout_below="@+id/balanceH"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorPrimary"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+
+        android:layout_height="wrap_content">
+
+    </TextView>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:text="After 500 Rupes It will Automaticaly Detect From Your Finall Amount "
+        android:layout_below="@+id/tx1"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorblack"
+
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="5dp"
+
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+
+
+
+</RelativeLayout>

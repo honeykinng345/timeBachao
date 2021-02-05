@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.DealsActivity">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/relavtive1"
+        android:background="@drawable/shape_react01"
+        >
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorwhite"
+            android:text="Deals Details"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+
+    </RelativeLayout>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_below="@+id/relavtive1"
+        android:id="@+id/filterdeals"
+        android:layout_margin="5dp"
+        android:layout_toStartOf="@+id/filterOrderBtn"
+        android:background="@drawable/shape_rect02"
+       android:hint="Search Deals"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:layout_below="@+id/filterdeals"
+        android:id="@+id/dealsRv"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_deals"
+        android:layout_height="wrap_content">
+
+    </androidx.recyclerview.widget.RecyclerView>
+    <com.github.ybq.android.spinkit.SpinKitView
+        android:layout_width="wrap_content"
+        android:id="@+id/progress_circular"
+        android:visibility="gone"
+        style="@style/SpinKitView.Large.RotatingCircle"
+        android:layout_centerInParent="true"
+        android:background="@color/colorPrimary"
+
+        android:layout_height="wrap_content">
+
+    </com.github.ybq.android.spinkit.SpinKitView>
+
+</RelativeLayout>

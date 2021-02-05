@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Activity.SettingsActivity">
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/relavtive1"
+        android:background="@drawable/shape_react01"
+        >
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorwhite"
+            android:text="Settings"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <androidx.appcompat.widget.SwitchCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/fcmSwitch"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:text="Push Notification"
+            android:background="@color/colorwhite"
+            android:paddingStart="10dp">
+
+        </androidx.appcompat.widget.SwitchCompat>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/notificationSatusTv"
+            android:paddingTop="10dp"
+            android:paddingEnd="10dp"
+            android:layout_below="@+id/fcmSwitch"
+            android:text="Notification is Disable "
+            android:textColor="@color/colorgray02"
+            android:background="@color/colorwhite"
+            android:paddingStart="10dp">
+
+        </TextView>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/colorgray00"
+            android:layout_below="@+id/notificationSatusTv">
+
+        </View>
+    </RelativeLayout>
+
+
+</LinearLayout>

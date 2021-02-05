@@ -1,0 +1,40 @@
+<resources>
+    <string name="app_name">timeBachao</string>
+    <string name="morning_string">Morning</string>
+    <string name="schedule_an_appointment_String">Schedule an Appointment</string>
+    <string name="select_date">Select Date..</string>
+    <string name="dd_mm_yy">DD/MM/YY</string>
+    <string name="todo">TODO</string>
+    <string name="select_time">Select Time..</string>
+    <string name="_09_00_am_12_00_pm">09:00 Am-12:00 PM</string>
+    <string name="afternoon">Afternoon</string>
+    <string name="_12_00_pm_03_00_pm">12:00 Pm-03:00 PM</string>
+    <string name="_03_00_pm_6_00_pm">03:00 PM-6:00 PM</string>
+    <string name="evening">Evening</string>
+    <string name="_06_00_pm_08_00_pm">06:00 PM-08:00 PM</string>
+    <string name="write_additional_message">Write Message Optional..</string>
+    <string name="continue_button">CONTINUE.!</string>
+    <string name="order_summary">Order Summary</string>
+    <string name="confrim_order">Confrim Order</string>
+    <string name="_93830444">93830444</string>
+    <string name="login">Login</string>
+    <string name="forget_password">Forget Password</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="dont_have_account_click_on_it">Dont Have Account? Click On It.</string>
+
+    <string name="item_title">item Title</string>
+    <string name="rs_500">Rs 500</string>
+    <string name="add_to_cart">Add To Cart</string>
+    <string name="harir_treatment_hair_color_shower">harir Treatment/ hair color/ shower/</string>
+    <string name="bomber_price">Bomber Price..</string>
+    <string name="remove">Remove</string>
+    <string name="_10kg">10Kg</string>
+    <string name="_2">[2]</string>
+    <string name="_10">10</string>
+    <string name="order_to">Order To</string>
+    <string name="your_feedback_is_important_to_improve_the_quality_of_services">Your feedback is important to improve the quality of services</string>
+    <string name="thanks_for_registration">You Are In Under Processes..!</string>
+    <string name="your_cart_is_empty">Please Add At Least One Service..!</string>
+    <string name="comment">We understand that it can be tempting to highlight exceptionally good or poor customer service by naming the person who served you. But adherence to privacy laws on Trustpilot is important, so we suggest keeping your review general, and writing directly to the company to praise or complain about specific employees.</string>
+</resources>

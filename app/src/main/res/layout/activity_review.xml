@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ReviewActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp"
+        android:id="@+id/relavtive1">
+
+        <ImageButton
+            android:id="@+id/RbackBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorwhite"
+            android:text="Write Review"
+            android:textSize="22sp"
+            android:id="@+id/titlTv"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+    </RelativeLayout>
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="200dp"
+        android:layout_marginTop="10dp"
+
+        app:lottie_rawRes="@raw/rating"
+        android:id="@+id/moneyAnimation"
+        app:lottie_autoPlay="true"
+        android:layout_centerVertical="true"
+        app:lottie_loop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relavtive1"
+        android:layout_height="200dp">
+
+    </com.airbnb.lottie.LottieAnimationView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/iconIv"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_centerInParent="true"
+
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/firstHead"
+        android:text="How Was Your Experince With Time Bachao.?"
+
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_below="@+id/firstHead"
+        android:textSize="15sp"
+        android:layout_marginTop="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+
+android:id="@+id/secondHead"
+        android:text="@string/your_feedback_is_important_to_improve_the_quality_of_services"
+
+        android:layout_height="wrap_content">
+
+    </TextView>
+
+    <RatingBar
+        android:layout_width="wrap_content"
+        android:layout_marginTop="20dp"
+        android:id="@+id/rateBar"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/secondHead"
+        android:layout_height="wrap_content">
+
+    </RatingBar>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_below="@+id/rateBar"
+        android:layout_marginStart="5dp"
+        android:padding="25dp"
+        android:layout_marginTop="10dp"
+        android:id="@+id/comments"
+        android:textColorHint="@color/colorgray02"
+        android:layout_centerVertical="true"
+        android:textColor="@color/colorblack"
+        android:hint="@string/write_additional_message"
+        android:layout_centerHorizontal="true"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/button_bg_stroke"
+        android:layout_height="wrap_content">
+
+    </EditText>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="20dp"
+        android:layout_alignParentEnd="true"
+        android:id="@+id/reviewbtn"
+        android:src="@drawable/ic_send_icon"
+        android:layout_height="wrap_content">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+
+</RelativeLayout>

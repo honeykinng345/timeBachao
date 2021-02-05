@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="150dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardBackgroundColor="@android:color/white"
+    app:cardElevation="5dp"
+    app:cardUseCompatPadding="true"
+    app:cardCornerRadius="10dp"
+
+    >
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:layout_width="110dp"
+            android:layout_height="110dp"
+            android:id="@+id/iv"
+            android:src="@drawable/ic_add_shopping_cart_primary"
+            app:c_border_color="@color/colorgray02"
+            app:c_border_width="1dp"
+            android:layout_marginEnd="5dp"
+            app:c_border="true">
+
+        </com.blogspot.atifsoftwares.circularimageview.CircularImageView>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_toStartOf="@id/nextIV"
+            android:layout_toEndOf="@+id/iv"
+            >
+
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                android:layout_marginTop="26dp"
+
+                android:id="@+id/titlTv"
+                android:text="Shop Name"
+                android:textColor="@color/colorblack"
+
+
+                >
+
+            </TextView>
+
+
+
+
+        </LinearLayout>
+
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:id="@+id/nextIV"
+            android:src="@drawable/ic_next_gray"
+            >
+
+        </ImageView>
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

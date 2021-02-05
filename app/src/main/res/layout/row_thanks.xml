@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:id="@+id/relavtive1"
+        android:background="@drawable/shape_react01">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/titleTv"
+
+            android:layout_centerVertical="true"
+            android:textColor="@color/colorwhite"
+            android:text="Thanks"
+
+            style="@style/TextAppearance.AppCompat.Title"
+
+            android:layout_centerHorizontal="true">
+
+        </TextView>
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:layout_centerVertical="true"
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+    </RelativeLayout>
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="200dp"
+        android:layout_marginTop="10dp"
+
+
+        app:lottie_rawRes="@raw/checkmark"
+        android:id="@+id/checkAnimation"
+        app:lottie_autoPlay="true"
+android:visibility="gone"
+        app:lottie_loop="true"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relavtive1"
+        android:layout_height="210dp">
+
+    </com.airbnb.lottie.LottieAnimationView>
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="200dp"
+        android:layout_marginTop="10dp"
+
+
+        app:lottie_rawRes="@raw/empty"
+        android:id="@+id/emptyCartAnim"
+        app:lottie_autoPlay="true"
+
+        app:lottie_loop="true"
+        android:visibility="gone"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relavtive1"
+        android:layout_height="210dp">
+
+    </com.airbnb.lottie.LottieAnimationView>
+
+<TextView
+    android:layout_width="wrap_content"
+    android:layout_centerVertical="true"
+    android:layout_marginStart="30dp"
+    android:layout_height="wrap_content"
+    android:id="@+id/thanksTv"
+    android:layout_centerHorizontal="true"
+    android:visibility="gone"
+    android:textColor="@color/colorPrimary"
+   android:text="@string/thanks_for_registration"
+
+    android:layout_below="@+id/checkAnimation">
+
+</TextView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/cartEmptyTv"
+        android:layout_centerHorizontal="true"
+
+        android:textColor="@color/colorPrimary"
+        android:text="@string/your_cart_is_empty"
+
+        android:layout_below="@+id/emptyCartAnim">
+
+    </TextView>
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:layout_width="200dp"
+        android:layout_marginTop="10dp"
+        app:lottie_rawRes="@raw/wait"
+        app:lottie_loop="true"
+        android:visibility="gone"
+        android:id="@+id/wait"
+
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/relavtive1"
+        android:layout_height="210dp">
+
+    </com.airbnb.lottie.LottieAnimationView>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginStart="30dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:id="@+id/Tvwait"
+
+        android:layout_centerHorizontal="true"
+
+        android:textColor="@color/colorPrimary"
+        android:text="Please Wait You Are In Under Process"
+
+        android:layout_below="@+id/wait">
+
+    </TextView>
+</RelativeLayout>

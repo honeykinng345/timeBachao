@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="5dp"
+    android:background="@color/colorgray00">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemTitleTv"
+        android:textColor="@color/colorblack"
+        android:text="@string/item_title">
+
+    </TextView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/itemPriceTv"
+        android:layout_below="@+id/itemTitleTv"
+        android:textColor="@color/colorblack"
+
+        android:gravity="center"
+        android:text="@string/_10">
+
+    </TextView>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/itemTitleTv">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemPriceEachTv"
+            android:layout_gravity="center"
+            android:textColor="@color/colorblack"
+
+            android:gravity="center"
+            android:text="@string/_10kg"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/itemQuantity"
+            android:layout_gravity="center"
+            android:textColor="@color/colorblack"
+            android:layout_marginStart="4dp"
+
+            android:gravity="center"
+            android:text="@string/_2"/>
+
+    </LinearLayout>
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemTitleTv"
+        android:text="@string/remove"
+        android:id="@+id/removeTv"
+        android:textColor="@color/colorred"
+        android:layout_alignParentEnd="true">
+
+    </TextView>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:layout_marginTop="5dp"
+        android:background="@color/colorGreen"
+        android:layout_below="@+id/removeTv">
+
+    </View>
+
+</RelativeLayout>

@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgray00"
+    tools:context=".Activity.OrderSummarActivity">
+
+    <RelativeLayout
+        android:id="@+id/relavtive1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp">
+
+        <ImageButton
+            android:id="@+id/RbackBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:src="@drawable/ic_chevron_white_left"
+            android:contentDescription="@string/todo">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:text="@string/order_summary"
+            android:textColor="@color/colorwhite"
+            android:textSize="22sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+    </RelativeLayout>
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/relavtive1"
+        android:layout_marginBottom="3dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+ <androidx.recyclerview.widget.RecyclerView
+     android:layout_width="match_parent"
+     android:layout_marginStart="5dp"
+     android:layout_marginEnd="5dp"
+     android:layout_marginTop="5dp"
+     app:stackFromEnd="true"
+     app:reverseLayout="true"
+     tools:listitem="@layout/row_order_summary_cart"
+     android:id="@+id/rVOrderSummary"
+     android:layout_marginBottom="5dp"
+
+     app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+     android:layout_height="wrap_content">
+ </androidx.recyclerview.widget.RecyclerView>
+
+
+       <RelativeLayout
+           android:layout_width="match_parent"
+           android:layout_below="@+id/rVOrderSummary"
+           android:layout_marginStart="6dp"
+           android:layout_marginEnd="6dp"
+           android:padding="20dp"
+           android:id="@+id/rlTotalTv"
+           android:background="@drawable/curve_background"
+           android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:textColor="@color/colorblack"
+                android:id="@+id/totalPayableAmountHeading"
+
+
+                android:text="Total payable Amount ">
+
+            </TextView>
+
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+              android:textStyle="bold"
+               android:id="@+id/redeemText"
+               android:layout_below="@+id/totalPayableAmountHeading"
+               android:textColor="@color/colorPrimary"
+
+android:layout_marginTop="20dp"
+               android:visibility="gone"
+               android:text="Your Redeem Points Added">
+
+           </TextView>
+           <TextView
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content"
+               android:layout_centerVertical="true"
+               android:textColor="@color/colorblack"
+             android:layout_alignParentEnd="true"
+               android:textSize="18sp"
+               android:id="@+id/alltotalPriceTV"
+               android:layout_marginEnd="6dp"
+
+
+               android:text="Rs : 500">
+
+           </TextView>
+
+       </RelativeLayout>
+
+            <CheckBox
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/rlTotalTv"
+
+                android:id="@+id/termConditionCheckBox"
+                android:text="I agree to Pay After Service And  "
+                android:layout_marginTop="10dp"
+                android:layout_height="wrap_content">
+
+            </CheckBox>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_below="@+id/rlTotalTv"
+                android:layout_marginTop="12dp"
+android:padding="4dp"
+
+                android:autoLink="all"
+                android:layout_marginEnd="10dp"
+                android:textColor="@color/colorPrimary"
+
+                android:text="Term&amp;Conditions"
+
+                android:id="@+id/termConditionTvLink"
+
+                android:layout_toEndOf="@+id/termConditionCheckBox"
+                android:layout_height="wrap_content">
+
+            </TextView>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:padding="15dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginStart="5dp"
+                android:id="@+id/dateTimeHeading"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/curve_background"
+                android:layout_below="@+id/termConditionTvLink"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorblack"
+
+                    android:id="@+id/selectTimeH"
+                    android:textSize="20sp"
+                    android:text="Scheduled Date and Time "
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorblack"
+
+                    android:layout_below="@+id/selectTimeH"
+                    android:layout_marginTop="5dp"
+
+                    android:textSize="20sp"
+                    android:text="08-12-2019"
+                    android:id="@+id/dateTv"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:textColor="@color/colorblack"
+
+                    android:layout_below="@+id/selectTimeH"
+                    android:layout_marginTop="5dp"
+                    android:layout_marginEnd="10dp"
+android:layout_alignParentEnd="true"
+                    android:textSize="20sp"
+                    android:text="12: PM-03:00 PM"
+
+                    android:id="@+id/timeTv"
+                    android:layout_height="wrap_content">
+
+                </TextView>
+
+
+            </RelativeLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_marginTop="15dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                android:layout_marginBottom="1dp"
+                app:cardElevation="3dp"
+                app:contentPadding="5dp"
+                android:id="@+id/cardView"
+                android:layout_below="@+id/dateTimeHeading">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:textSize="22sp"
+                        android:layout_marginStart="10dp"
+                        android:layout_marginTop="10dp"
+                        android:textColor="@color/colorblack"
+                        android:text="Contact Details"
+                        android:id="@+id/contactDetailHeading"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+                    <ImageButton
+                        android:layout_width="72dp"
+                        android:background="@null"
+                        android:id="@+id/iconHome"
+                        android:src="@drawable/ic_home_primary"
+                        android:layout_below="@+id/contactDetailHeading"
+                        android:layout_height="72dp">
+
+                    </ImageButton>
+                    <TextView
+                        android:layout_width="match_parent"
+                      android:padding="10dp"
+                        android:layout_marginEnd="40dp"
+
+                        android:text="Home"
+                        android:textColor="@color/colorblack"
+                        android:textSize="19sp"
+                        android:layout_marginTop="14dp"
+                        android:layout_below="@+id/contactDetailHeading"
+                        android:layout_toEndOf="@id/iconHome"
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/line1"
+                        android:orientation="horizontal"
+                        android:layout_below="@+id/iconHome"
+                       >
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_marginStart="25dp"
+
+
+                            android:text="Contact | "
+                            android:textColor="@color/colorgray02"
+                            android:layout_height="wrap_content">
+
+                        </TextView>
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+                            android:textColor="@color/colorgray02"
+                            android:text="@string/_93830444"
+                            android:id="@+id/phoneTv"
+                            android:layout_marginStart="10dp"
+                            >
+
+                        </TextView>
+
+                    </LinearLayout>
+                    <View
+                        android:layout_width="match_parent"
+                        android:layout_below="@+id/line1"
+                        android:layout_marginTop="5dp"
+                        android:id="@+id/view1"
+                        android:background="@color/colorgray01"
+                        android:layout_height="1dp">
+
+                    </View>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_below="@+id/view1"
+
+                        android:layout_marginTop="5dp"
+                        android:textColor="@color/colorgray02"
+                        android:text="shalimar husing secheme Darogawala Lahore"
+                        android:inputType="textPostalAddress"
+                        android:textSize="18sp"
+                        android:id="@+id/userAddress"
+
+
+                        android:layout_height="wrap_content">
+
+                    </TextView>
+
+
+
+
+                </RelativeLayout>
+
+
+            </androidx.cardview.widget.CardView>
+            <Button
+                android:layout_width="match_parent"
+                android:layout_marginEnd="15dp"
+                android:layout_marginStart="15dp"
+
+
+                android:text="@string/confrim_order"
+                android:layout_alignParentBottom="true"
+                android:textColor="@color/colorwhite"
+                android:background="@color/colorPrimary"
+                android:layout_marginTop="10dp"
+                android:layout_below="@+id/cardView"
+                android:layout_height="wrap_content"
+                android:id="@+id/checkOutBtn"
+
+               >
+
+            </Button>
+
+        </RelativeLayout>
+
+    </ScrollView>
+
+</RelativeLayout>

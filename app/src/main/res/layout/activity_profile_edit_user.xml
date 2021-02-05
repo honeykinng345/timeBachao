@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.ProfileEditUserActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp"
+        android:id="@+id/relavtive1">
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/backBtn"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorwhite"
+            android:text="Edit Profile"
+            android:textSize="22sp"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/gpsBtn"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_gps_white">
+
+        </ImageButton>
+
+
+    </RelativeLayout>
+
+    <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_below="@+id/relavtive1"
+        android:layout_centerHorizontal="true"
+        app:c_border="true"
+        android:layout_marginTop="10dp"
+        android:src="@drawable/personicon"
+        android:id="@+id/personIV"
+        app:c_background_color="@color/colorPrimary"
+        app:c_border_width="1dp"
+        >
+
+    </com.blogspot.atifsoftwares.circularimageview.CircularImageView>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/nameEt"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/personIV"
+        android:layout_margin="5dp"
+        android:drawableStart="@drawable/ic_mail_gray"
+        android:padding="5dp"
+        android:hint="Full Name"
+        android:drawablePadding="7dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textPersonName|textCapWords">
+
+    </EditText>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/phoneET"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/nameEt"
+        android:layout_margin="5dp"
+        android:drawableStart="@drawable/ic_phone_gray"
+        android:padding="5dp"
+        android:hint="Phone"
+        android:drawablePadding="7dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="phone">
+
+    </EditText>
+
+
+    <EditText
+        android:layout_width="match_parent"
+        android:id="@+id/adrdresET"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/address"
+        android:layout_margin="5dp"
+        android:drawableStart="@drawable/ic_location_gray"
+        android:padding="5dp"
+        android:hint="Complete Address"
+        android:drawablePadding="7dp"
+        android:background="@drawable/shape_rect02"
+        android:inputType="textPostalAddress|textMultiLine">
+
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/address"
+        android:layout_below="@+id/phoneET">
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/countryEt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameEt"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_location_gray"
+            android:padding="5dp"
+            android:hint="Country"
+            android:layout_weight="1"
+            android:drawablePadding="7dp"
+            android:background="@drawable/shape_rect02"
+            android:inputType="textPostalAddress">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/stateEt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameEt"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_location_gray"
+            android:padding="5dp"
+            android:hint="State"
+            android:layout_weight="1"
+            android:drawablePadding="7dp"
+            android:background="@drawable/shape_rect02"
+            android:inputType="textPostalAddress">
+
+        </EditText>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:id="@+id/cityEt"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/nameEt"
+            android:layout_margin="5dp"
+            android:drawableStart="@drawable/ic_location_gray"
+            android:padding="5dp"
+            android:hint="City"
+            android:layout_weight="1"
+            android:drawablePadding="7dp"
+            android:background="@drawable/shape_rect02"
+            android:inputType="textPostalAddress">
+
+        </EditText>
+
+    </LinearLayout>
+
+
+
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/updateBtn"
+        android:layout_below="@+id/adrdresET"
+        android:text="Update"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:minWidth="120dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
+
+
+
+
+</RelativeLayout>

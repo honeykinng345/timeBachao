@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorgray00"
+    tools:context=".Activity.CatgoriesActivity">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp"
+        android:id="@+id/relavtive1">
+
+        <ImageButton
+            android:id="@+id/RbackBtn"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:src="@drawable/ic_chevron_white_left">
+
+        </ImageButton>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:textColor="@color/colorwhite"
+            android:text="Title.. "
+            android:textSize="22sp"
+            android:id="@+id/titlTv"
+            android:textStyle="bold"
+            >
+
+        </TextView>
+
+    </RelativeLayout>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:layout_below="@+id/relavtive1"
+        android:id="@+id/filterProductTv"
+        android:layout_margin="5dp"
+        android:layout_toStartOf="@+id/filterOrderBtn"
+        android:background="@drawable/shape_rect02"
+        android:hint="Search.."
+        />
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        app:stackFromEnd="true"
+        app:reverseLayout="true"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:listitem="@layout/row_catgeories"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/filterProductTv"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:id="@+id/catRV">
+
+    </androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/progressBar"
+        android:visibility="gone"
+        android:layout_centerInParent="true">
+
+    </ProgressBar>
+
+</RelativeLayout>

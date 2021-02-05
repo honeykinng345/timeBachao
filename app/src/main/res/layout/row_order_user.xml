@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardElevation="3dp"
+    android:layout_marginBottom="2dp"
+
+    app:contentPadding="5dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/orderIDTv"
+            android:textColor="@color/colorblack"
+            android:textStyle="bold"
+            android:text="Order:12346">
+
+        </TextView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateTv"
+            android:layout_alignParentEnd="true"
+            android:text="22/6/2020">
+
+        </TextView>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:id="@+id/amountTv"
+            android:layout_below="@+id/dateTv"
+            android:textColor="@color/colorblack"
+            android:text="Total Amount: 400.34">
+
+        </TextView>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/dateTv"
+            android:id="@+id/nextIV"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_next_gray"
+            android:contentDescription="@string/todo">
+
+        </ImageView>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/status"
+            android:layout_below="@+id/nextIV"
+            android:layout_alignParentEnd="true"
+            android:textColor="@color/colorGreen"
+            android:text="In Progress">
+
+        </TextView>
+
+        <View
+            android:layout_width="match_parent"
+android:layout_alignParentBottom="true"
+            android:background="@color/colorgray01"
+            android:layout_height="1dp">
+
+        </View>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

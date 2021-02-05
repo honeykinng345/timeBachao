@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activity.MainUserActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/shape_react01"
+        android:padding="10dp"
+        android:id="@+id/relavtive1">
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/logoutBtn"
+            android:layout_alignParentEnd="true"
+
+            android:src="@drawable/ic_logout"
+            android:contentDescription="TODO">
+
+        </ImageButton>
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/editBtn"
+            android:layout_toStartOf="@+id/logoutBtn"
+
+            android:src="@drawable/ic_edit"
+            android:contentDescription="TODO">
+
+        </ImageButton>
+
+
+
+        <ImageButton
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:background="@null"
+            android:id="@+id/cartBtn"
+            android:layout_toStartOf="@+id/editBtn"
+
+            android:src="@drawable/ic_add_shopping_white"
+            android:contentDescription="TODO">
+
+        </ImageButton>
+        <TextView
+            android:layout_width="18dp"
+            android:layout_height="18dp"
+            android:gravity="center"
+            android:layout_toStartOf="@id/editBtn"
+            android:text="10"
+            android:id="@+id/cardCountTv"
+            android:textSize="8sp"
+android:layout_marginBottom="8dp"
+            android:background="@drawable/reactcircle"
+            android:textStyle="bold"
+            android:textColor="@color/colorwhite"/>
+
+
+        <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            app:c_border="true"
+            app:c_border_color="@color/colorwhite"
+            app:c_background_color="@color/colorwhite"
+            app:c_border_width="0.5dp"
+            android:src="@drawable/personicon"
+            android:id="@+id/personIV"
+            android:layout_marginEnd="10dp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorwhite"
+            android:text="Name"
+            android:id="@+id/topName"
+            android:textStyle="bold"
+            android:layout_toEndOf="@+id/personIV"
+            >
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorwhite"
+            android:text="Phone"
+            android:id="@+id/phoneTv"
+            android:textStyle="bold"
+            android:layout_below="@+id/topName"
+            android:layout_toEndOf="@+id/personIV"
+            >
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorwhite"
+            android:text="Email"
+            android:id="@+id/emailTv"
+            android:textStyle="bold"
+            android:layout_below="@+id/phoneTv"
+            android:layout_toEndOf="@+id/personIV"
+            >
+
+        </TextView>
+        <!-- Addd  TabLayut    -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:orientation="horizontal"
+            android:background="@drawable/react03"
+            android:layout_below="@+id/personIV">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Servcies"
+                android:layout_weight="1"
+                android:background="@drawable/react04"
+                android:id="@+id/tabproductTv"
+                android:textColor="@color/colorblack"
+                android:gravity="center">
+
+            </TextView>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="Order History"
+                android:textColor="@color/colorwhite"
+                android:layout_weight="1"
+                android:id="@+id/tabOrderTv"
+                android:gravity="center">
+
+            </TextView>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+    <!-- proudct data  -->
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:visibility="gone"
+
+        android:layout_below="@+id/relavtive1"
+        android:id="@+id/productsLR">
+
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            style="@style/TextAppearance.AppCompat.Title"
+
+            android:text="All Services "
+            android:layout_marginStart="5dp"
+
+            android:layout_marginBottom="5dp"
+            android:id="@+id/filterProductTv"
+            android:textColor="@color/colorPink">
+
+        </TextView>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_marginStart="5dp"
+
+            android:layout_marginTop="5dp"
+            android:id="@+id/serviceRV"
+
+
+
+            android:layout_marginEnd="5dp"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="10dp"
+
+            android:layout_below="@+id/filterProductTv"
+      >
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+    <!-- oders data  -->
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/relavtive1"
+
+        android:id="@+id/ordersLR">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/colorPink"
+            android:textSize="15dp"
+            android:id="@+id/filterOrderTv"
+            android:layout_margin="5dp"
+
+
+            android:text="Order History">
+
+        </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="10dp"
+            android:textColor="@color/colorblack"
+            android:textSize="20dp"
+            android:id="@+id/noOrders"
+            android:visibility="gone"
+
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="5dp"
+
+
+            android:text="No Orders ..">
+
+        </TextView>
+
+
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/Deals"
+
+            android:layout_below="@+id/filterOrderTv"
+>
+
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </RelativeLayout>
+
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_menu_white"
+        android:layout_alignParentEnd="true"
+        android:layout_marginBottom="20dp"
+        android:layout_marginEnd="13dp"
+        android:id="@+id/NavOpenBtn"
+
+        android:layout_alignParentBottom="true">
+
+    </com.google.android.material.floatingactionbutton.FloatingActionButton>
+
+    <ProgressBar
+        android:layout_width="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:id="@+id/progressBar"
+android:visibility="gone"
+        android:outlineAmbientShadowColor="@color/colorPink"
+
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content">
+
+    </ProgressBar>
+
+</RelativeLayout>
