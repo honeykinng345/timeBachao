@@ -26,6 +26,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -36,6 +37,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 
@@ -49,32 +51,41 @@ import java.util.Map;
 
 import home.services.timeBacaho.AppConfig;
 import home.services.timeBacaho.AppController;
+import home.services.timeBacaho.LocationFinder;
 import home.services.timeBacaho.R;
 import home.services.timeBacaho.SQLiteHandler;
 import home.services.timeBacaho.SessionManager;
 
-public class ServiceProviderRegisterActivity extends AppCompatActivity  implements LocationListener {
+public class ServiceProviderRegisterActivity extends AppCompatActivity{
 
     private ImageButton backbtn, gpsBtn;
 
-    private EditText nameEt, phoneET, countryEt, stateEt, cityEt, adressEt, emailET, passwordET, cPassword;
+    private EditText nameEt, phoneET, emailET, passwordET, cPassword;
     private TextView registersServiceTv;
     private ProgressDialog progressDialog;
 
     private String accountType = "Seller";
-    private double latitude , longlitude ;
+    RelativeLayout snackbar_action;
+
     private LocationManager locationManager;
     //permission Constants
     private static final int LOCATION_REQUEST_CODE = 100;
     //permission Array
     private String[] locationPermission;
     //session Manager
-    private SessionManager session;
+
+    LocationFinder finder;
+    Location location;
+    List<Address> addresses;
+    Geocoder geocoder;
+
+    double longitude = 0.0, latitude = 0.0;
     //   private SQLiteHandler db;
-    private SQLiteHandler db;
+
     private Button registerBtn;
- private    String token;
+
     private  String status = "0";
+    String token;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -88,12 +99,9 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
 
         backbtn = findViewById(R.id.RbackBtn);
         nameEt = findViewById(R.id.nameEt);
+        snackbar_action = findViewById(R.id.snackbar_action);
         phoneET = findViewById(R.id.phoneET);
-        countryEt = findViewById(R.id.countryEt);
-        stateEt = findViewById(R.id.stateEt);
-        cityEt = findViewById(R.id.cityEt);
 
-        adressEt = findViewById(R.id.adrdresET);
         passwordET = findViewById(R.id.Rpassword);
         cPassword = findViewById(R.id.Cpassword);
         emailET = findViewById(R.id.RemailET);
@@ -101,24 +109,23 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
         registerBtn = findViewById(R.id.regsiterBtn);
 
 
-        //init permission Array
+        locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
         locationPermission = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
-        // Session manager
-        session = new SessionManager(getApplicationContext());
-        // SQLite database handler
-        db = new SQLiteHandler(getApplicationContext());
-
+        geocoder = new Geocoder(this);
         FirebaseInstanceId.getInstance().getInstanceId()
                 .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
                     @Override
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
-                        if (task.isSuccessful()){ token = task.getResult().getToken();
+                        if (task.isSuccessful()) {
+                            token = task.getResult().getToken();
+                            Toast.makeText(ServiceProviderRegisterActivity.this, "" + token, Toast.LENGTH_SHORT).show();
+
 
                         } else {
-
                         }
                     }
                 });
+
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -172,10 +179,6 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
 
         Phone = phoneET.getText().toString().trim();
 
-        country = countryEt.getText().toString().trim();
-        state = stateEt.getText().toString().trim();
-        city = cityEt.getText().toString().trim();
-        address = adressEt.getText().toString().trim();
         email = emailET.getText().toString().trim();
         password = passwordET.getText().toString().trim();
         confrimPassword = cPassword.getText().toString().trim();
@@ -215,7 +218,11 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
         if (!password.equals(confrimPassword)) {
             return;
         }
+        if (latitude == 0.0 || longitude == 0.0){
 
+            Toast.makeText(this," Click Top Right Button to Detect Location ",Toast.LENGTH_SHORT).show();
+            return;
+        }
         CreateAccount(fullName, Phone, country, state, city, address, email, password);
 
 
@@ -243,6 +250,11 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
                     if (!error) {
                         // User successfully stored in MySQL
                         // Now store the user in sqlite
+                        nameEt.setText(null);
+                        emailET.setText(null);
+                        passwordET.setText(null);
+                        phoneET.setText(null);
+                        cPassword.setText(null);
                         String uid = jObj.getString("uid");
 
                         JSONObject user = jObj.getJSONObject("user");
@@ -302,7 +314,7 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
                 params.put("country", country);
                 params.put("state", state);
                 params.put("latitude", String.valueOf(latitude));
-                params.put("longitude", String.valueOf(longlitude));
+                params.put("longitude", String.valueOf(longitude));
                 params.put("phone", phone);
                 params.put("token", token);
                 params.put("status", status);
@@ -342,98 +354,69 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
             }
         });
     }
-
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
-    private void detectLocation() {
-
-
-        Toast.makeText(this, "Please wait...", Toast.LENGTH_SHORT).show();
-        locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        if (checkSelfPermission(Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            // TODO: Consider calling
-            //    Activity#requestPermissions
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for Activity#requestPermissions for more details.
-            return;
-        }
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, this);
-
-
-    }
-    private boolean checkLocationPermission(){
-        boolean result = ContextCompat.checkSelfPermission(this,Manifest.permission.ACCESS_FINE_LOCATION)==(PackageManager.PERMISSION_GRANTED);
+    private boolean checkLocationPermission() {
+        boolean result = ContextCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) == (PackageManager.PERMISSION_GRANTED);
         return result;
 
     }
 
-    public void requestPermissionLocation(){
-
-        ActivityCompat.requestPermissions(this,locationPermission,LOCATION_REQUEST_CODE);
+    public void requestPermissionLocation() {
+        ActivityCompat.requestPermissions(this, locationPermission, LOCATION_REQUEST_CODE);
 
     }
 
-
-    @Override
-    public void onLocationChanged(Location location) {
-
-        //location detected
-
-        latitude = location.getLatitude();
-        longlitude = location.getLongitude();
-        findAdress();
-    }
-
-    private void findAdress() {
-
-
-
-        Geocoder geocoder;
-        List<Address> addresses;
-        geocoder = new Geocoder(this, Locale.getDefault());
-
-        try {
-
-            addresses = geocoder.getFromLocation(latitude,longlitude,1);
-            String address = addresses.get(0).getAddressLine(0);//get Complete Address
-            String city = addresses.get(0).getLocality();
-            String state = addresses.get(0).getAdminArea();
-            String country = addresses.get(0).getCountryName();
-
-            adressEt.setText(address);
-            cityEt.setText(city);
-            stateEt.setText(state);
-            countryEt.setText(country);
-
-
-        }catch (Exception e){
-
-            Toast.makeText(this,""+e,Toast.LENGTH_SHORT).show();
+    private void detectLocation() {
+        Snackbar snackbar = Snackbar
+                .make(snackbar_action, "Please Wait...", Snackbar.LENGTH_LONG);
+        snackbar.show();
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
         }
+        location = locationManager
+                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
+
+
+
+        if (location == null){
+            location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
+        }
+
+
+
+        /*location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);*/
+        findAddress();
     }
 
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
+    private void findAddress() {
+        try {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 10);
+            address = addresses.get(0).getAddressLine(0);
+            city = addresses.get(0).getLocality();
+            state = addresses.get(0).getAdminArea();
+            country = addresses.get(0).getCountryName();
+            Toast.makeText(ServiceProviderRegisterActivity.this,""+country, Toast.LENGTH_LONG).show();
+            Address address = addresses.get(0);
+
+        } catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(ServiceProviderRegisterActivity.this,""+e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
 
     }
 
-    @Override
-    public void onProviderEnabled(String provider) {
-        Toast.makeText(this,"Please turn on your Location...",Toast.LENGTH_SHORT).show();
-    }
 
-    @Override
-    public void onProviderDisabled(String provider) {
-
-    }
-
-    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-
 
         switch (requestCode) {
             case LOCATION_REQUEST_CODE: {
@@ -448,14 +431,23 @@ public class ServiceProviderRegisterActivity extends AppCompatActivity  implemen
                     } else {
 
                         //permssion deined
-                        Toast.makeText(this, "Location Neccassary...", Toast.LENGTH_SHORT).show();
+
+
+                        Snackbar snackbar = Snackbar
+                                .make(snackbar_action, "www.journaldev.com", Snackbar.LENGTH_LONG);
+                        snackbar.show();
 
 
                     }
                 }
             }
             break;
+
         }
+
+
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
+
+
 }

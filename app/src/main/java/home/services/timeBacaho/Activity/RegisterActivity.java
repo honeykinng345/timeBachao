@@ -119,7 +119,7 @@ public class RegisterActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<InstanceIdResult> task) {
                         if (task.isSuccessful()) {
                             token = task.getResult().getToken();
-                            Toast.makeText(RegisterActivity.this, "" + token, Toast.LENGTH_SHORT).show();
+                         //   Toast.makeText(RegisterActivity.this, "" + token, Toast.LENGTH_SHORT).show();
 
 
                         } else {
@@ -205,11 +205,11 @@ public class RegisterActivity extends AppCompatActivity {
             return;
 
         }
-     /*    if (latitude == 0.0 || longitude == 0.0){
+         if (latitude == 0.0 || longitude == 0.0){
 
            Toast.makeText(this," Click Top Right Button to Detect Location ",Toast.LENGTH_SHORT).show();
           return;
-         }*/
+         }
         if (!password.equals(confrimPassword)) {
             Toast.makeText(this, "password Not match", Toast.LENGTH_SHORT).show();
             return;

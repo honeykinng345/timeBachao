@@ -18,8 +18,21 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.SettingsActivity"></activity>
-        <activity android:name=".ReviewsActivity" />
+        <activity android:name=".Activity.About_usActivity"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
+        <activity android:name=".Activity.FaqActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity android:name=".Activity.HelpActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
+        <activity
+            android:name=".Activity.TermAndConditionActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".Activity.SettingsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ReviewsActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".Activity.RedeemActivity"
             android:theme="@style/AppTheme.NoActionBar" />
@@ -29,7 +42,8 @@
         <activity
             android:name=".Activity.ProfileEditUserActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".SuggestionActivity" />
+        <activity android:name=".SuggestionActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity
             android:name=".Activity.ReviewActivity"
             android:theme="@style/AppTheme.NoActionBar" />

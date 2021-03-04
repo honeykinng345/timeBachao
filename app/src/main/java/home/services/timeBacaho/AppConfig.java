@@ -2,7 +2,7 @@ package home.services.timeBacaho;
 
 public class AppConfig {
 
-private  static  String getURL_Main = "http://192.168.10.7/timeBachao";
+private  static  String getURL_Main = "http://192.168.137.1/timeBachao";
 
     public static String URL_LOGIN = getURL_Main+"/android_login_api/login.php";
     // Server user register url
@@ -15,6 +15,7 @@ private  static  String getURL_Main = "http://192.168.10.7/timeBachao";
     public static String URL_OrderDetail =  getURL_Main+"/android_login_api/ordersApi.php";
     public static String URL_OrderItems =  getURL_Main+"/android_login_api/itemsStoreApi.php";
     public static String URL_FetchOrderDetail =  getURL_Main+"/android_login_api/sendOrderDetailToUser.php";
+    public static String URL_UsersOrderListDetail=  getURL_Main+"/android_login_api/UsersOrderListDetail.php";
     public static String URL_FetchOrderDetailItems =  getURL_Main+"/android_login_api/sendOrderItems.php";
     public static String URL_Deals =  getURL_Main+"/android_login_api/dealsApi.php";
     public static String URL_UpdateUser_Information = getURL_Main+"/android_login_api/updateUser.php";
@@ -32,5 +33,11 @@ private  static  String getURL_Main = "http://192.168.10.7/timeBachao";
     public static String IMAGE_CATEGORIES_SERVICE_URL =  getURL_Main+"/Cimages/";
     public static String IMAGE_SUB_CAT_SERVICE_URL =  getURL_Main+"/Sub_image/";
     public static String IMAGE_DEALS_URL =  getURL_Main+"/dealsImages/";
+
+
+    public  static  final String FCM_KEY = "AAAAu8l07MA:APA91bHKHgbOEciC49UdVdObGbBu3znZLJxqDeC9i70bkEV-qUEsyuWxjfvWiuWr4DfOzeWZFEEx_Bg4QALNsYD5H5lwJ6CLmFjyQhTX2vXrMcgwlkQqWujV0TWL4aWTI8QLiYGCFodR";
+    public  static  final String FCM_TOPIC = "PUSH_NOTIFICATIONS";
+
+    public static  boolean isEmployeCome= true;
 
 }

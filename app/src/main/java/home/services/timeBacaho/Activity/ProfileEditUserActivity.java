@@ -1,5 +1,6 @@
 package home.services.timeBacaho.Activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
@@ -21,12 +22,14 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.HashMap;
 import java.util.List;
@@ -39,15 +42,20 @@ import home.services.timeBacaho.DatabaseHelper;
 import home.services.timeBacaho.R;
 import home.services.timeBacaho.SessionManager;
 
-public class ProfileEditUserActivity extends AppCompatActivity implements LocationListener {
+public class ProfileEditUserActivity extends AppCompatActivity{
     private Button updateButton;
     private ImageButton backBtn,gpsBtn;
-    private EditText nameEt,phoneET,countryEt,stateEt,cityEt,adressEt;
+    private EditText nameEt,phoneET;
+    private TextView countryEt,stateEt,cityEt,adressEt;
     private ProgressDialog progressDialog;
-    private double latitude = 0.0, longlitude = 0.0;
+    Location location;
+
+    double longitude = 0.0, latitude = 0.0;
+    List<Address> addresses;
     //permission Constants
     private static  final  int LOCATION_REQUEST_CODE = 100;
     private String[]  locationPermission;
+    Geocoder geocoder;
 
 private   String  email;
     private DatabaseHelper databaseHelper;
@@ -75,8 +83,10 @@ private   String  email;
         databaseHelper = new DatabaseHelper(getApplicationContext());
 
         //init permission Array
+   ///     locationPermission = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
+        locationManager = (LocationManager) this.getSystemService(LOCATION_SERVICE);
         locationPermission = new String[]{Manifest.permission.ACCESS_FINE_LOCATION};
-
+        geocoder = new Geocoder(this);
         checkUser();
         backBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,25 +103,22 @@ private   String  email;
 
             }
         });
-        gpsBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                //detect Location
-                //detect Curren Location
+        gpsBtn.setOnClickListener(v -> {
+            //detect Location
+            //detect Curren Location
 
-                if (checkLocationPermission()){
-                    //already Allowed
-                    detectLocation();
+            if (checkLocationPermission()){
+                //already Allowed
+                detectLocation();
 
 
 
-                }else {
+            }else {
 
-                    //not allowed
-                    requestPermissionLocation();
+                //not allowed
+                requestPermissionLocation();
 
 
-                }
             }
         });
 
@@ -178,7 +185,7 @@ private   String  email;
                 params.put("city ", city);
                 params.put("state",state);
                 params.put("latitude",String.valueOf(latitude));
-                params.put("longitude",String.valueOf(longlitude));
+                params.put("longitude",String.valueOf(longitude));
                 params.put("phone",Phone);
 
 
@@ -194,15 +201,25 @@ private   String  email;
     private void addDataToSqlite() {
 
        String templati = String.valueOf(latitude);
-       String templongi = String.valueOf(longlitude);
+       String templongi = String.valueOf(longitude);
 
         databaseHelper.updateData(email,fullName,address,city,country,state,templati,templongi,Phone);
 
 
         progressDialog.dismiss();
+       // onCreate(new Bundle());
+       finish();
+        startActivity(getIntent());
+
         Toast.makeText(ProfileEditUserActivity.this,"Information Is Updated Successful",Toast.LENGTH_SHORT).show();
+      /*
+        if (AppConfig.isEmployeCome){
+            startActivity(new Intent(ProfileEditUserActivity.this,MainUserActivity.class));
+        }else{
+
+        }
         startActivity(new Intent(ProfileEditUserActivity.this,MainUserActivity.class));
-        finish();
+        finish();*/
     }
 
     private void checkUser() {
@@ -225,11 +242,6 @@ private   String  email;
 
     }
 
-    public void requestPermissionLocation(){
-
-        ActivityCompat.requestPermissions(this,locationPermission,LOCATION_REQUEST_CODE);
-
-    }
 
     @SuppressLint("SetTextI18n")
     private void loadUserInfo() {
@@ -259,57 +271,96 @@ private   String  email;
 
     }
 
-    @Override
-    public void onLocationChanged(Location location) {
 
-        latitude = location.getLatitude();
-        longlitude = location.getLongitude();
-        findAdress();
+    public void requestPermissionLocation() {
+        ActivityCompat.requestPermissions(this, locationPermission, LOCATION_REQUEST_CODE);
+
     }
+
     private void detectLocation() {
+       /* Snackbar snackbar = Snackbar
+                .make(snackbar_action, "Please Wait...", Snackbar.LENGTH_LONG);
+        snackbar.show();*/
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+        location = locationManager
+                .getLastKnownLocation(LocationManager.NETWORK_PROVIDER);
 
-        Toast.makeText(this,"Please wait...",Toast.LENGTH_SHORT).show();
-        locationManager = (LocationManager)getSystemService(Context.LOCATION_SERVICE);
-        locationManager.requestLocationUpdates(LocationManager.GPS_PROVIDER,0,0,this);
 
 
-    }
-    private void findAdress() {
-
-        Geocoder geocoder;
-        List<Address> addresses;
-        geocoder = new Geocoder(this, Locale.getDefault());
-
-        try {
-
-            addresses = geocoder.getFromLocation(latitude,longlitude,1);
-            String address = addresses.get(0).getAddressLine(0);//get Complete Address
-            String city = addresses.get(0).getLocality();
-            String state = addresses.get(0).getAdminArea();
-            String country = addresses.get(0).getCountryName();
-
-            adressEt.setText(address);
-            cityEt.setText(city);
-            stateEt.setText(state);
-            countryEt.setText(country);
-
-        }catch (Exception e){
-            Toast.makeText(this,""+e,Toast.LENGTH_SHORT).show();
+        if (location == null){
+            location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);
         }
 
-    }
-    @Override
-    public void onStatusChanged(String provider, int status, Bundle extras) {
 
-    }
 
-    @Override
-    public void onProviderEnabled(String provider) {
-
+        /*location = locationManager.getLastKnownLocation(LocationManager.PASSIVE_PROVIDER);*/
+        findAddress();
     }
 
+    private void findAddress() {
+        try {
+            latitude = location.getLatitude();
+            longitude = location.getLongitude();
+            addresses = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 10);
+            address = addresses.get(0).getAddressLine(0);
+            adressEt.setText(""+address);
+            city = addresses.get(0).getLocality();
+            cityEt.setText(""+city);
+            state = addresses.get(0).getAdminArea();
+            stateEt.setText(""+state);
+            country = addresses.get(0).getCountryName();
+            countryEt.setText(""+country);
+            Toast.makeText(ProfileEditUserActivity.this,""+country, Toast.LENGTH_LONG).show();
+            Address address = addresses.get(0);
+
+        } catch (Exception e){
+            e.printStackTrace();
+            Toast.makeText(ProfileEditUserActivity.this,""+e.getMessage(),Toast.LENGTH_LONG).show();
+        }
+
+
+    }
+
     @Override
-    public void onProviderDisabled(String provider) {
-        Toast.makeText(this,"Please turn on your GPS...",Toast.LENGTH_SHORT).show();
+    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
+
+        switch (requestCode) {
+            case LOCATION_REQUEST_CODE: {
+                if (grantResults.length > 0) {
+                    boolean locationAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                    if (locationAccepted) {
+
+                        //permssion granted
+                        detectLocation();
+
+
+                    } else {
+
+              /*          //permssion deined
+
+
+                        Snackbar snackbar = Snackbar
+                                .make(snackbar_action, "www.journaldev.com", Snackbar.LENGTH_LONG);
+                        snackbar.show();*/
+
+
+                    }
+                }
+            }
+            break;
+
+        }
+
+
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
     }
 }

@@ -87,7 +87,7 @@ reviews.setOnClickListener(new View.OnClickListener() {
 
 
 
-        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_FetchOrderDetail,
+        StringRequest stringRequest = new StringRequest(Request.Method.POST, AppConfig.URL_UsersOrderListDetail,
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -169,7 +169,7 @@ reviews.setOnClickListener(new View.OnClickListener() {
         protected Map<String, String> getParams() {
             // Posting params to register url
             Map<String, String> params = new HashMap<>();
-            params.put("userEmail",email);
+            params.put("id",id);
 
 
             return params;

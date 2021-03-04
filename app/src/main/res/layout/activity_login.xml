@@ -71,25 +71,15 @@
         android:inputType="textPassword"
         android:importantForAutofill="no" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
-        android:text="@string/forget_password"
-        android:padding="5dp"
-        android:layout_margin="5dp"
-        android:id="@+id/forgetTv"
-        android:layout_alignParentEnd="true"
-        >
 
-    </TextView>
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/loginBtn"
-        android:layout_below="@+id/forgetTv"
+        android:layout_below="@+id/password"
         android:text="@string/login"
+        android:layout_marginTop="10dp"
         style="@style/Widget.AppCompat.Button.Colored"
         android:minWidth="120dp"
         android:layout_centerHorizontal="true"

@@ -302,7 +302,7 @@
                                 <Button
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-                                    android:id="@+id/purchasesBtn"
+                                    android:id="@+id/trm"
                                     android:background="@android:color/transparent">
 
                                 </Button>
@@ -349,7 +349,7 @@
                                 <Button
                                     android:layout_width="match_parent"
                                     android:layout_height="match_parent"
-
+           android:id="@+id/help"
                                     android:background="@android:color/transparent">
 
                                 </Button>

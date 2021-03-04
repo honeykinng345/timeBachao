@@ -118,9 +118,6 @@ redeemBalance.setText(""+"Rs"+":"+redeem);
         //adding our stringrequest to queue
         AppController.getInstance().addToRequestQueue(stringRequest);
     }
-
-
-
     private void fetchUserInfo() {
 
 

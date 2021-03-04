@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.database.Cursor;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 import android.widget.ImageButton;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -41,7 +42,7 @@ public class ServiceProviderMain extends AppCompatActivity {
     private RelativeLayout newOrderRl,ordersHistoryRL;
     private RecyclerView   newOrderRV,orderRV;
     private TextView tabNewOrderTv,tabOrderHistoryTv,topName,phoneTv,emailTv;
-    private ImageButton logoutBtn;
+    private ImageButton logoutBtn,editBtn;
     private DatabaseHelper db1;
     private SessionManager sessionManager;
     private  ArrayList<ModelNewOrderEmploye> newOrderEmployes;
@@ -65,6 +66,7 @@ public class ServiceProviderMain extends AppCompatActivity {
         newOrderRV= findViewById(R.id.newOrderRV);
         orderRV= findViewById(R.id.orderRV);
         spin_kit= findViewById(R.id.spin_kit);
+        editBtn= findViewById(R.id.editBtn);
 
         db1 = new DatabaseHelper(getApplicationContext());
         sessionManager = new SessionManager(getApplicationContext());
@@ -86,18 +88,9 @@ public class ServiceProviderMain extends AppCompatActivity {
                 logoutUser();
             }
         });
-        tabNewOrderTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showNewOrderUi();
-            }
-        });
-        tabOrderHistoryTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                showOrderHistoryUi();
-            }
-        });
+        tabNewOrderTv.setOnClickListener(v -> showNewOrderUi());
+        tabOrderHistoryTv.setOnClickListener(v -> showOrderHistoryUi());
+        editBtn.setOnClickListener(v -> startActivity(new Intent(ServiceProviderMain.this,ProfileEditUserActivity.class)));
         Toast.makeText(ServiceProviderMain.this,""+email,Toast.LENGTH_LONG).show();
 
     }

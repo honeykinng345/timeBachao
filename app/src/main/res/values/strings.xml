@@ -20,6 +20,8 @@
     <string name="login">Login</string>
     <string name="forget_password">Forget Password</string>
     <string name="email">Email</string>
+
+    <string name="new_text">To add a service to your existing appointment, please contact the Time Bachao team at &lt;font color="#0000FF"&gt;blue&lt;/font&gt;</string>
     <string name="password">Password</string>
     <string name="dont_have_account_click_on_it">Dont Have Account? Click On It.</string>
 
@@ -36,5 +38,20 @@
     <string name="your_feedback_is_important_to_improve_the_quality_of_services">Your feedback is important to improve the quality of services</string>
     <string name="thanks_for_registration">You Are In Under Processes..!</string>
     <string name="your_cart_is_empty">Please Add At Least One Service..!</string>
-    <string name="comment">We understand that it can be tempting to highlight exceptionally good or poor customer service by naming the person who served you. But adherence to privacy laws on Trustpilot is important, so we suggest keeping your review general, and writing directly to the company to praise or complain about specific employees.</string>
+    <string name="comment">We
+        understand that it can be tempting to highlight exceptionally good or poor customer service by naming the person who
+        served you. But adherence to privacy laws on Trustpilot is important, so we suggest keeping your review general, and writing directly
+        to the company to praise or complain about specific employees.</string>
+    <string name="about_us">Time Bachao is a social enterprise that provides timely, convenient and professional at-home beauty
+services to its female clients through a web and mobile based solution. Time Bachao’s services run the
+gamut from blowout, waxing, manicure, pedicure, facial, and massage. And that’s not all, Time Bachao
+also provides package deals that meet the demands of its clients.
+Time Bachao is more than just your regular beauty, physiotherapy, fitness and E-laundry app, it provides
+lucrative economic opportunities to women skilled in beauty services. At its core Time Bachao, enables
+these women to be self-sufficient and run their own independent at-home beauty services.
+Our vigilant vetting process ensures that we take on board reliable beauty professional’s fitness
+professional. Time Bachao further up-skills the beauticians, who then provide clients high quality, timely
+and premium beauty services in the comfort of their homes.
+Together, you and the Time Bachao team can make a difference in people’s lives all the while ensuring
+that you look your best anytime, anywhere!</string>
 </resources>

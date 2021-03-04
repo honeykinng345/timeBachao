@@ -409,10 +409,13 @@ progressBar.setVisibility(View.GONE);
         View view =  LayoutInflater.from(MainUserActivity.this).inflate(R.layout.bottom_navigsation,null);
         bottomSheetDialog.setContentView(view);
 
-        Button dealsBtn,redeemBtn,reviews;
+        Button dealsBtn,redeemBtn,reviews,settingBtn,trm,help;
         dealsBtn = view.findViewById(R.id.dealsBtn);
         redeemBtn = view.findViewById(R.id.redeemBtn);
         reviews = view.findViewById(R.id.reviews);
+        settingBtn = view.findViewById(R.id.settingBtn);
+        trm= view.findViewById(R.id.trm);
+        help= view.findViewById(R.id.help);
         bottomSheetDialog.show();
 
         dealsBtn.setOnClickListener(new View.OnClickListener() {
@@ -433,6 +436,26 @@ progressBar.setVisibility(View.GONE);
                 startActivity(new Intent(MainUserActivity.this, ReviewsActivity.class));
             }
         });
+        settingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainUserActivity.this, SettingsActivity.class));
+            }
+        });
+        trm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainUserActivity.this, TermAndConditionActivity.class));
+            }
+        });
+
+        help.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(MainUserActivity.this, HelpActivity.class));
+            }
+        });
+
 
     }
 

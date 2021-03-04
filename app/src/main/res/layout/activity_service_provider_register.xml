@@ -4,9 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/snackbar_action"
     android:background="@color/colorwhite"
 
-    tools:context=".Activity.ServiceProviderRegisterActivity">
+    tools:context=".Activity.RegisterActivity">
 
     <RelativeLayout
         android:id="@+id/relavtive1"
@@ -28,7 +29,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:text="Services Provider"
+            android:text="Register As Employe"
             android:textColor="@color/colorwhite"
             android:textSize="22sp"
             android:textStyle="bold">
@@ -60,65 +61,46 @@
         android:src="@drawable/ic_key_white">
 
     </ImageView>
-    <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:cardElevation="3dp"
-        android:layout_below="@+id/iv"
-        android:layout_marginEnd="10dp"
-
-        android:layout_marginStart="10dp"
-
-
-        app:contentPadding="5dp">
-<RelativeLayout
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content">
-    <com.blogspot.atifsoftwares.circularimageview.CircularImageView
-
-        android:layout_width="90dp"
-        android:layout_height="90dp"
-        android:layout_centerHorizontal="true"
-
-
-
-        app:c_border="true"
-        app:c_border_width="1dp"
-        app:c_border_color="@color/colorPrimary"
-        android:layout_marginBottom="20dp"
-
-
-        android:padding="5dp"
-
-        android:src="@drawable/personicon">
-
-    </com.blogspot.atifsoftwares.circularimageview.CircularImageView>
-
-</RelativeLayout>
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
 
-
         android:layout_below="@+id/iv"
-        android:layout_marginTop="60dp">
-
-
-
-
-
+        >
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_marginStart="5dp"
             android:layout_marginEnd="5dp"
-            android:layout_marginTop="60dp"
             android:layout_height="wrap_content">
+            <com.blogspot.atifsoftwares.circularimageview.CircularImageView
+
+                android:layout_width="90dp"
+                android:layout_height="90dp"
+                android:layout_centerHorizontal="true"
+
+                app:c_border="true"
+                app:c_border_width="1dp"
+                android:id="@+id/iconIv"
+                app:c_border_color="@color/colorPrimary"
+
+
+
+                android:padding="5dp"
+
+                android:src="@drawable/personicon">
+
+            </com.blogspot.atifsoftwares.circularimageview.CircularImageView>
+
+
+
+
 
             <EditText
                 android:id="@+id/nameEt"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
+                android:layout_below="@+id/iconIv"
+                android:layout_marginTop="7dp"
                 android:layout_margin="5dp"
                 android:background="@drawable/shape_rect02"
                 android:drawableStart="@drawable/ic_mail_gray"
@@ -145,84 +127,15 @@
             </EditText>
 
 
-            <EditText
-                android:id="@+id/adrdresET"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/address"
-                android:layout_margin="5dp"
-                android:background="@drawable/shape_rect02"
-                android:drawableStart="@drawable/ic_location_gray"
-                android:drawablePadding="7dp"
-                android:hint="Complete Address"
-                android:inputType="textPostalAddress|textMultiLine"
-                android:padding="5dp">
 
-            </EditText>
 
-            <LinearLayout
-                android:id="@+id/address"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/phoneET"
-                android:orientation="horizontal">
-
-                <EditText
-                    android:id="@+id/countryEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nameEt"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_rect02"
-                    android:drawableStart="@drawable/ic_location_gray"
-                    android:drawablePadding="7dp"
-                    android:hint="Country"
-                    android:inputType="textPostalAddress"
-                    android:padding="5dp">
-
-                </EditText>
-
-                <EditText
-                    android:id="@+id/stateEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nameEt"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_rect02"
-                    android:drawableStart="@drawable/ic_location_gray"
-                    android:drawablePadding="7dp"
-                    android:hint="State"
-                    android:inputType="textPostalAddress"
-                    android:padding="5dp">
-
-                </EditText>
-
-                <EditText
-                    android:id="@+id/cityEt"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_below="@+id/nameEt"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/shape_rect02"
-                    android:drawableStart="@drawable/ic_location_gray"
-                    android:drawablePadding="7dp"
-                    android:hint="City"
-                    android:inputType="textPostalAddress"
-                    android:padding="5dp">
-
-                </EditText>
-
-            </LinearLayout>
 
 
             <EditText
                 android:id="@+id/RemailET"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/adrdresET"
+                android:layout_below="@+id/phoneET"
                 android:layout_margin="5dp"
                 android:background="@drawable/shape_rect02"
                 android:drawableStart="@drawable/ic_mail_gray"
@@ -275,13 +188,14 @@
                 android:text="Register Now!" />
 
 
+
         </RelativeLayout>
+
+
 
 
     </ScrollView>
 
-
-    </androidx.cardview.widget.CardView>
 
 
 

@@ -4,43 +4,45 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ReviewsActivity">
+    tools:context=".Activity.TermAndConditionActivity">
+
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="80dp"
+
         android:background="@drawable/shape_react01"
         android:padding="10dp"
         android:id="@+id/relavtive1">
-
-        <ImageButton
-            android:id="@+id/RbackBtn"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:background="@null"
-            android:src="@drawable/ic_chevron_white_left">
-
-        </ImageButton>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:textColor="@color/colorwhite"
-            android:text="User Reviews"
+            android:text="Term &amp; Conditions"
             android:textSize="22sp"
-            android:id="@+id/titlTv"
             android:textStyle="bold"
             >
 
         </TextView>
+
     </RelativeLayout>
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_below="@+id/relavtive1"
+    android:layout_height="match_parent">
 
-
-    <androidx.recyclerview.widget.RecyclerView
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="match_parent"
-        android:id="@+id/recylerView"
-        android:layout_below="@+id/relavtive1"
+        android:layout_height="match_parent"
+        android:padding="12sp"
 
-        android:layout_height="match_parent">
-    </androidx.recyclerview.widget.RecyclerView>
+        />
+
+</ScrollView>
+
+
+
 </RelativeLayout>

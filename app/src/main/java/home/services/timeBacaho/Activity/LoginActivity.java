@@ -68,19 +68,9 @@ public class LoginActivity extends AppCompatActivity {
         session = new SessionManager(getApplicationContext());
         db1   = new DatabaseHelper(getApplicationContext());
         authentication();
-        noAccountTv.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(LoginActivity.this,RegisterActivity.class));
-            }
-        });
+        noAccountTv.setOnClickListener(v -> startActivity(new Intent(LoginActivity.this,RegisterActivity.class)));
 
-        loginBtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                logUser();
-            }
-        });
+        loginBtn.setOnClickListener(v -> logUser());
 
 
 
