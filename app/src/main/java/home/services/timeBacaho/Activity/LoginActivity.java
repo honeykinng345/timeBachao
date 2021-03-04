@@ -212,12 +212,12 @@ public class LoginActivity extends AppCompatActivity {
 
 
      boolean b= db1.insertData(name, email, uid,accountType,address,city,country,state,latitude,longitude,phone,created_at);
-
+/*
      if (b){
          Toast.makeText(LoginActivity.this,"add",Toast.LENGTH_LONG).show();
      }else {
          Toast.makeText(LoginActivity.this,"failed",Toast.LENGTH_LONG).show();
-     }
+     }*/
 
         checKUser();
 

@@ -2,7 +2,7 @@ package home.services.timeBacaho;
 
 public class AppConfig {
 
-private  static  String getURL_Main = "http://192.168.137.1/timeBachao";
+private  static  String getURL_Main = "http://192.168.10.9/timeBachao";
 
     public static String URL_LOGIN = getURL_Main+"/android_login_api/login.php";
     // Server user register url
@@ -27,6 +27,7 @@ private  static  String getURL_Main = "http://192.168.137.1/timeBachao";
     public static String URL_UpdateRedeemPoints =  getURL_Main+"/android_login_api/updateRedeemValue.php";
     public static String URL_IncreamentRedeemValue = getURL_Main+"/android_login_api/redeem.php";
     public static String URL_reviewsAll = getURL_Main+"/android_login_api/reviewsAll.php";
+    public static String URL_contact_US = getURL_Main+"/android_login_api/contact_US.php";
 
 //iMAGES lINKS....
     public static String IMAGE_MAIN_SERVICE_URL =  getURL_Main+"/SImages/";

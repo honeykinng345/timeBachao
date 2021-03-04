@@ -84,6 +84,7 @@
             android:drawableStart="@drawable/ic_person_gray"
             android:padding="5dp"
             android:hint="name"
+            android:id="@+id/name"
             android:drawablePadding="7dp"
             android:background="@drawable/shape_rect02"
             android:inputType="text"
@@ -99,6 +100,7 @@
             android:drawableStart="@drawable/ic_phone_gray"
             android:padding="5dp"
             android:hint="phone "
+            android:id="@+id/phone"
             android:drawablePadding="7dp"
             android:background="@drawable/shape_rect02"
             android:inputType="number"
@@ -111,6 +113,7 @@
             android:layout_height="wrap_content"
 
             android:layout_margin="5dp"
+            android:id="@+id/subject"
             android:drawableStart="@drawable/ic__subject"
             android:padding="5dp"
             android:hint="subject"
@@ -126,6 +129,7 @@
             android:layout_height="wrap_content"
 
             android:layout_margin="5dp"
+            android:id="@+id/message"
             android:drawableStart="@drawable/ic_mail_gray"
             android:padding="5dp"
             android:hint="message"
@@ -136,11 +140,12 @@
 
         </EditText>
         <Button
-            android:id="@+id/continueBtn"
+            android:id="@+id/submit"
             android:layout_width="200dp"
             android:layout_height="40dp"
          android:layout_gravity="center"
             android:layout_margin="40dp"
+
             android:background="@drawable/rounded_button"
             android:text="Submit"
             android:textColor="#FFF"
